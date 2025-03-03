@@ -1,0 +1,157 @@
+.sidebar {
+  background: var(--bg-dark);
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: var(--shadow-lg);
+  border-radius: 0 0.5rem 0.5rem 0;
+  overflow-y: auto;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+/* Navigation Styles */
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+}
+
+.brand-text {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.nav-menu {
+  padding: 1rem 0;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Menu Items */
+.nav-group {
+  margin-bottom: 0.5rem;
+}
+
+.nav-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  gap: 1rem;
+}
+
+.nav-item:hover .nav-link {
+  color: white;
+  background: rgba(255,255,255,0.1);
+}
+
+.nav-item.active .nav-link {
+  color: white;
+  background: var(--primary-color);
+}
+
+.nav-text {
+  white-space: nowrap;
+}
+
+.expand-icon {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.expand-icon.expanded {
+  transform: rotate(90deg);
+}
+
+/* Submenu Styles */
+.submenu {
+  overflow: hidden;
+  height: 0;
+  background: rgba(0,0,0,0.2);
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.submenu-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem 0.75rem 3.5rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  gap: 0.75rem;
+}
+
+.submenu-item:hover,
+.submenu-item.active {
+  color: white;
+  background: rgba(255,255,255,0.05);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.bi {
+  font-size: 1.25rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+  
+  .nav-item {
+    padding: 0.5rem 1rem;
+  }
+  
+  .submenu-item {
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+  }
+}

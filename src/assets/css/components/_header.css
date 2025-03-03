@@ -1,0 +1,47 @@
+.admin-header {
+  background: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+/* Header Content */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-title h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1a1a27;
+}
+
+/* Actions Area */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1a1a27;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .user-email, .button-text {
+    display: none;
+  }
+  
+  .header-actions {
+    gap: 0.5rem;
+  }
+}

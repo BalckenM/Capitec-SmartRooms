@@ -1,0 +1,127 @@
+.enhanced-sidebar {
+  --sidebar-bg: #1a1a27;
+  --sidebar-hover: rgba(255, 255, 255, 0.1);
+  --item-active: var(--primary-color);
+  --text-muted: rgba(255, 255, 255, 0.7);
+  
+  background: var(--sidebar-bg);
+  transition: all 0.3s ease;
+  border-radius: 0 0.5rem 0.5rem 0;
+  overflow-y: auto;
+}
+
+.nav-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--item-active);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-item:hover::before,
+.nav-item.active::before {
+  transform: scaleY(1);
+}
+
+.nav-item-content {
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover .nav-item-content {
+  background: var(--sidebar-hover);
+  padding-left: 2rem;
+}
+
+.nav-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.nav-item:hover .nav-icon,
+.nav-item.active .nav-icon {
+  opacity: 1;
+}
+
+.nav-title {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.expand-icon {
+  transition: transform 0.3s ease;
+}
+
+.expand-icon.expanded {
+  transform: rotate(180deg);
+}
+
+.submenu {
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.submenu-item {
+  padding: 0.5rem 1.5rem 0.5rem 3.5rem;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.submenu-item::before {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transform: translateY(-50%) scale(0);
+  transition: transform 0.3s ease;
+}
+
+.submenu-item:hover::before,
+.submenu-item.active::before {
+  transform: translateY(-50%) scale(1);
+}
+
+.submenu-item:hover,
+.submenu-item.active {
+  color: white;
+  padding-left: 4rem;
+}
+
+.badge {
+  padding: 0.25rem 0.5rem;
+  background: var(--primary-color);
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Collapse Animation */
+.sidebar-enter-active,
+.sidebar-leave-active {
+  transition: transform 0.3s ease;
+}
+
+.sidebar-enter-from,
+.sidebar-leave-to {
+  transform: translateX(-100%);
+}
